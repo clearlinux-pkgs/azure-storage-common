@@ -4,7 +4,7 @@
 #
 Name     : azure-storage-common
 Version  : 2.0.0
-Release  : 6
+Release  : 7
 URL      : https://files.pythonhosted.org/packages/5e/e3/f911b664fbf6b1607f9ddc4998ce1d2f260b542983a2e6e0d219429b8605/azure-storage-common-2.0.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/5e/e3/f911b664fbf6b1607f9ddc4998ce1d2f260b542983a2e6e0d219429b8605/azure-storage-common-2.0.0.tar.gz
 Summary  : Microsoft Azure Storage Common Client Library for Python
