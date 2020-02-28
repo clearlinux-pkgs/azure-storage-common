@@ -4,7 +4,7 @@
 #
 Name     : azure-storage-common
 Version  : 2.1.0
-Release  : 10
+Release  : 11
 URL      : https://files.pythonhosted.org/packages/48/12/e074fe454bc327fbe2a61e20d3260473ee4a0fd85387baf249dc83c8e774/azure-storage-common-2.1.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/48/12/e074fe454bc327fbe2a61e20d3260473ee4a0fd85387baf249dc83c8e774/azure-storage-common-2.1.0.tar.gz
 Summary  : Microsoft Azure Storage Common Client Library for Python
@@ -52,6 +52,7 @@ python components for the azure-storage-common package.
 Summary: python3 components for the azure-storage-common package.
 Group: Default
 Requires: python3-core
+Provides: pypi(azure-storage-common)
 
 %description python3
 python3 components for the azure-storage-common package.
@@ -59,13 +60,15 @@ python3 components for the azure-storage-common package.
 
 %prep
 %setup -q -n azure-storage-common-2.1.0
+cd %{_builddir}/azure-storage-common-2.1.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1564754015
+export SOURCE_DATE_EPOCH=1582849074
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -81,7 +84,7 @@ python3 setup.py build
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/azure-storage-common
-cp LICENSE.txt %{buildroot}/usr/share/package-licenses/azure-storage-common/LICENSE.txt
+cp %{_builddir}/azure-storage-common-2.1.0/LICENSE.txt %{buildroot}/usr/share/package-licenses/azure-storage-common/db7376318a1c27e5890f668a05d8ac5f68048007
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -92,7 +95,7 @@ echo ----[ mark ]----
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/azure-storage-common/LICENSE.txt
+/usr/share/package-licenses/azure-storage-common/db7376318a1c27e5890f668a05d8ac5f68048007
 
 %files python
 %defattr(-,root,root,-)
