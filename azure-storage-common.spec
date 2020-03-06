@@ -4,7 +4,7 @@
 #
 Name     : azure-storage-common
 Version  : 2.1.0
-Release  : 11
+Release  : 12
 URL      : https://files.pythonhosted.org/packages/48/12/e074fe454bc327fbe2a61e20d3260473ee4a0fd85387baf249dc83c8e774/azure-storage-common-2.1.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/48/12/e074fe454bc327fbe2a61e20d3260473ee4a0fd85387baf249dc83c8e774/azure-storage-common-2.1.0.tar.gz
 Summary  : Microsoft Azure Storage Common Client Library for Python
@@ -24,12 +24,7 @@ BuildRequires : python-dateutil
 BuildRequires : requests
 
 %description
-Microsoft Azure Storage SDK for Python
 ======================================
-.. image:: https://travis-ci.org/Azure/azure-storage-python.svg
-:target: https://travis-ci.org/Azure/azure-storage-python
-.. image:: https://img.shields.io/codecov/c/github/azure/azure-storage-python.svg
-:target: https://codecov.io/gh/Azure/azure-storage-python
 
 %package license
 Summary: license components for the azure-storage-common package.
@@ -52,7 +47,11 @@ python components for the azure-storage-common package.
 Summary: python3 components for the azure-storage-common package.
 Group: Default
 Requires: python3-core
-Provides: pypi(azure-storage-common)
+Provides: pypi(azure_storage_common)
+Requires: pypi(azure_common)
+Requires: pypi(cryptography)
+Requires: pypi(python_dateutil)
+Requires: pypi(requests)
 
 %description python3
 python3 components for the azure-storage-common package.
@@ -67,8 +66,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1582849074
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1583531668
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
